@@ -1,6 +1,8 @@
 package com.ismailmesutmujde.javalandmarkbook;
 
-public class Landmark {
+import java.io.Serializable;
+
+public class Landmark implements Serializable {
 
     String name;
     String country;
