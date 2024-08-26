@@ -2,12 +2,14 @@ package com.ismailmesutmujde.javalandmarkbook;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ismailmesutmujde.javalandmarkbook.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         landmarkArrayList.add(eiffel);
         landmarkArrayList.add(colosseum);
         landmarkArrayList.add(londonBridge);
+
+        // Adapter : veri kaynağımızla xml'i ve listView'i birbirine bağlayan yapıdır.
+
+        // ListView : Kullanması kolay ama verimsizdir.
+
+        // mapping : haritalama
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,
+                landmarkArrayList.stream().map(landmark -> landmark.name).collect(Collectors.toList()) // mapping
+        );
+        binding.listView.setAdapter(arrayAdapter);
 
     }
 }
