@@ -1,6 +1,8 @@
 package com.ismailmesutmujde.javalandmarkbook;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     ArrayList<Landmark> landmarkArrayList;
+
+    //static Landmark chosenLandmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +48,17 @@ public class MainActivity extends AppCompatActivity {
         landmarkArrayList.add(colosseum);
         landmarkArrayList.add(londonBridge);
 
+        // Not Efficient (Verimli değil)
+        // Bitmap
+        Bitmap pisaBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pisa);
+
         // RecyclerView
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         LandmarkAdapter landmarkAdapter = new LandmarkAdapter(landmarkArrayList);
         binding.recyclerView.setAdapter(landmarkAdapter);
+
+
+        // Singleton : Nesne yönelimli programlamada, Java singleton sınıfı, aynı anda yalnızca bir nesneye (sınıfın bir örneğine) sahip olabilen bir sınıftır.
 
         // RecyclerView kullanmak için xml'deki listview'i sildik...
 
