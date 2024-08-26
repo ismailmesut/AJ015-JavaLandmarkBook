@@ -1,19 +1,29 @@
 package com.ismailmesutmujde.javalandmarkbook;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.ismailmesutmujde.javalandmarkbook.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
+
     ArrayList<Landmark> landmarkArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // View Binding
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        //-----------------------------------------------------------------
 
         landmarkArrayList = new ArrayList<>();
 
