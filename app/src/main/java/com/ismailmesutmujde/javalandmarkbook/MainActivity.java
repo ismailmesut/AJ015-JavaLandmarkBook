@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ismailmesutmujde.javalandmarkbook.databinding.ActivityMainBinding;
 
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         landmarkArrayList.add(colosseum);
         landmarkArrayList.add(londonBridge);
 
+        // RecyclerView
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LandmarkAdapter landmarkAdapter = new LandmarkAdapter(landmarkArrayList);
+        binding.recyclerView.setAdapter(landmarkAdapter);
+
+        // RecyclerView kullanmak için xml'deki listview'i sildik...
+
+        /*
+
         // Adapter : veri kaynağımızla xml'i ve listView'i birbirine bağlayan yapıdır.
 
         // ListView : Kullanması kolay ama verimsizdir.
@@ -62,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        */
+
+
 
     }
 }
